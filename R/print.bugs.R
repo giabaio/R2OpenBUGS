@@ -67,3 +67,5 @@ print.bugs <- function(x, digits.summary = 3, interval = c(.025, .975), ...)
     }
     invisible(x)
 }
+
+

@@ -4,13 +4,19 @@
 \alias{print.bugs}
 \title{Printing a bugs object}
 \usage{
-\method{print}{bugs}(x, digits.summary = 1, ...)
+\method{print}{bugs}(x, digits.summary = 3, interval = c(0.025, 0.975), ...)
 }
 \arguments{
 \item{x}{an object of class `bugs', see \code{\link{bugs}} for details}
 
 \item{digits.summary}{rounding for tabular output on the console (default is
 to round to 1 decimal place)}
+
+\item{interval}{[added by GB] the quantiles for the posterior distribution to 
+be displayed in the summary statistics table (defaults to 0.025 and 0.975, 
+which will show the 2.5-th and 97.5-th quantiles of the posterior, so as to 
+give an approximate central 95% interval). Other choices are 0.25, 0.5 and 
+0.75 to show the 25-th, median and 75-th quantiles of the posterior}
 
 \item{...}{further arguments to \code{\link{print}}}
 }
