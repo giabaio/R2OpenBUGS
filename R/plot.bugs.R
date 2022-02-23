@@ -1,3 +1,15 @@
+#' Plotting a bugs object
+#' 
+#' Plotting a \code{bugs} object
+#' 
+#' 
+#' @param x an object of class `bugs', see \code{\link{bugs}} for details
+#' @param display.parallel display parallel intervals in both halves of the
+#' summary plots; this is a convergence-monitoring tool and is not necessary
+#' once you have approximate convergence (default is \code{FALSE})
+#' @param ... further arguments to \code{\link{plot}}
+#' @seealso \code{\link{bugs}}
+#' @keywords hplot
 plot.bugs <- function (x, display.parallel = FALSE, ...){
     mar.old <- par("mar")
     pty.old <- par(pty = "m")

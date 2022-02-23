@@ -1,3 +1,21 @@
+#' Read data from OpenBUGS logfile
+#' 
+#' Read data such as summary statistics and DIC information from the
+#' \pkg{OpenBUGS} logfile
+#' 
+#' Returns the OpenBUGS summary statistics and DIC extracted directly from the
+#' log file.
+#' 
+#' @param file Location of the \pkg{OpenBUGS} logfile
+#' @return A list with components: \item{stats}{A matrix containing summary
+#' statistics for each saved parameter. Comparable to the information in the
+#' element \code{summary} of a bugs object as returned by \code{\link{bugs}}.}
+#' \item{DIC}{A matrix containing the DIC statistics as returned from
+#' \pkg{OpenBUGS}.}
+#' @author Jouni Kerman
+#' @seealso The main function that generates the log file is
+#' \code{\link{bugs}}.
+#' @keywords IO file
 bugs.log <- function (file)
 {
   # Extracts the summary statistics from log.txt written by OpenBUGS.

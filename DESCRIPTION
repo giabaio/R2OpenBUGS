@@ -31,7 +31,8 @@ Authors@R: c(person(given = "Andrew",
 Description: Using this package,
  it is possible to call a BUGS model, summarize inferences and
  convergence in a table and graph, and save the simulations in arrays for easy access
- in R. 
+ in R. **NB**: This version has been forked by GB and contains some changes
+ from the CRAN one.
 Depends: R (>= 2.13.0)
 Imports: coda (>= 0.11-0), boot
 SystemRequirements: OpenBUGS (>= 3.2.2)
@@ -47,3 +48,4 @@ Author: Andrew Gelman [aut],
 Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
 Repository: CRAN
 Date/Publication: 2025-07-28 18:20:13 UTC
+RoxygenNote: 7.1.2
