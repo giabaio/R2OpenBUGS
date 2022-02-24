@@ -141,7 +141,7 @@ bugs_diagplot=function(x,what="Rhat",...) {
     }
   }
   x$summary %>% as_tibble() %>% ggplot(aes(1:nrow(.),!!sym(what))) + 
-    geom_point() + geom_hline(yintercept=ifelse(what=="Rhat",1.1,m$BUGSoutput$n.sims),linetype="dashed",size=2) + 
+    geom_point() + geom_hline(yintercept=ifelse(what=="Rhat",1.1,x$n.sims),linetype="dashed",size=2) + 
     theme_bw() + labs(x="Parameters",title=ifelse(what=="Rhat","Potential scale reduction","Effective sample size"))
 }
 
