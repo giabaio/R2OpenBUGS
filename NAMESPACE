@@ -22,7 +22,8 @@ export(bugs,
 	     bugs_summary,
 	     bugs_diagplot,
 	     posteriorplot,
-	     traceplot
+	     traceplot,
+       coefplot
 	   )
 
 S3method(print, bugs)
