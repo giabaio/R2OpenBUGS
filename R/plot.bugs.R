@@ -164,14 +164,14 @@ bugs_diagplot=function(x,what="Rhat",...) {
     theme_bw() + labs(x="Parameters",title=ifelse(what=="Rhat","Potential scale reduction","Effective sample size"))
 }
 
-#' Coefplot for the parameters i
+#' Coefplot for the parameters in the model
 #' 
 #' Creates a plot showing the mean and an interval estimate for the posterior
 #' distributions in a given model.
 #' 
 #' @param x A '`bugs', see \code{\link{bugs}} object 
-#' @param low the lower quantile to consider (default 2.5% quantile)
-#' @param upp the upper quantile to consider (default 97.5% quantile)
+#' @param low the lower quantile to consider (default 2.5\% quantile)
+#' @param upp the upper quantile to consider (default 97.5\% quantile)
 #' @param params a vector of strings with the names of the parameters to be 
 #' included. Defaults to all those in the original model
 #' @param deviance a logical value (defaults to FALSE) to indicate whether
