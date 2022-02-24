@@ -35,6 +35,7 @@ Description: Using this package,
  from the CRAN one.
 Depends: R (>= 2.13.0)
 Imports: coda (>= 0.11-0), boot
+Suggests: tidyverse
 SystemRequirements: OpenBUGS (>= 3.2.2)
 License: GPL-2
 NeedsCompilation: no

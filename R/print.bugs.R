@@ -69,3 +69,50 @@ print.bugs <- function(x, digits.summary = 3, interval = c(.025, .975), ...)
 }
 
 
+#' Summary table for the output of the MCMC process
+#' 
+#' Creates a summary table based on tibbles and with some nice
+#' formatting properties
+#' 
+#' @param x A \code{\link{bugs}} object resulting from a call to 'bugs(...)'
+#' @param parameter A (vector of) parameter(s) name(s) to be displayed in the
+#' summary table. If NULL (default), then uses all the model parameters
+#' that have been monitored to construct the summary tibble. 
+#' @param probs A vector of probability values to be shown to represent the 
+#' summary statistics. Defaults to 'c(0.025,0.975)', to show the 2.5 and the 
+#' 97.5% percentiles of the posterior distributions (indicating a rough 95%
+#' credible interval). Other possible values are 0.25, 0.5, 0.75
+#' @param ...  Additional options
+#' @author Gianluca Baio
+#' @seealso \code{bugs}, \code{print.bugs}
+#' @keywords Summary table
+#' @examples
+#' \dontrun{ 
+#' } 
+#' @export bugs_summary
+#' 
+bugs_summary=function(x,parameter=NULL,probs=c(.025,.975),...) {
+  
+  required_packages=c("tidyverse")
+  for (pkg in required_packages) {
+    if (!requireNamespace(pkg, quietly = TRUE)) {
+      stop("`", pkg, "` is required: install.packages('", pkg, "')")
+    }
+  }
+  
+  all_probs=c("2.5%","25%","50%","75%","97.5%")
+  probs=paste0(as.character(probs*100),"%")
+  
+  if(length(parameter)>1) {
+    parameter=paste(parameter,collapse="|")
+  }
+  
+  tab=x$summary
+  out=tab %>% as_tibble() %>% mutate(Parameter=rownames(tab)) %>% 
+    select(-setdiff(all_probs,probs)) %>% 
+    select(Parameter,mean,sd,everything())
+  if(!is.null(parameter)){
+    out=out %>% filter(grepl(parameter,Parameter))
+  }
+  return(out)
+}
