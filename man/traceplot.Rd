@@ -4,7 +4,7 @@
 \alias{traceplot}
 \title{Tidyverse based function to do traceplots}
 \usage{
-traceplot(x, parameter, ...)
+traceplot(x, parameter = NULL, ...)
 }
 \arguments{
 \item{x}{an object of class `bugs', see \code{\link{bugs}} for details}
@@ -19,4 +19,7 @@ Traceplot for a \code{bugs} object
 }
 \seealso{
 \code{\link{bugs}}
+}
+\author{
+Gianluca Baio
 }
