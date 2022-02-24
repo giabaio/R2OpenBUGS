@@ -2,16 +2,16 @@
 % Please edit documentation in R/plot.bugs.R
 \name{coefplot}
 \alias{coefplot}
-\title{Coefplot for the parameters i}
+\title{Coefplot for the parameters in the model}
 \usage{
 coefplot(x, low = 0.025, upp = 0.975, params = NULL, deviance = FALSE, ...)
 }
 \arguments{
 \item{x}{A '`bugs', see \code{\link{bugs}} object}
 
-\item{low}{the lower quantile to consider (default 2.5% quantile)}
+\item{low}{the lower quantile to consider (default 2.5\% quantile)}
 
-\item{upp}{the upper quantile to consider (default 97.5% quantile)}
+\item{upp}{the upper quantile to consider (default 97.5\% quantile)}
 
 \item{params}{a vector of strings with the names of the parameters to be 
 included. Defaults to all those in the original model}
