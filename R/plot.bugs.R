@@ -50,7 +50,7 @@ traceplot=function(x,parameter=NULL,...) {
     } 
     if (requireNamespace(pkg, quietly = TRUE)) {
       if (!is.element(pkg, (.packages()))) {
-        attachNamespace(pkg)
+        suppressMessages(suppressWarnings(attachNamespace(pkg)))
       }
     }
   }
@@ -93,7 +93,7 @@ posteriorplot=function(x,parameter=NULL,plot="density",...) {
     } 
     if (requireNamespace(pkg, quietly = TRUE)) {
       if (!is.element(pkg, (.packages()))) {
-        attachNamespace(pkg)
+        suppressMessages(suppressWarnings(attachNamespace(pkg)))
       }
     }
   }
@@ -152,7 +152,7 @@ bugs_diagplot=function(x,what="Rhat",...) {
     } 
     if (requireNamespace(pkg, quietly = TRUE)) {
       if (!is.element(pkg, (.packages()))) {
-        attachNamespace(pkg)
+        suppressMessages(suppressWarnings(attachNamespace(pkg)))
       }
     }
   }
