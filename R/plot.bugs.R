@@ -47,6 +47,11 @@ traceplot=function(x,parameter=NULL,...) {
   for (pkg in required_packages) {
     if (!requireNamespace(pkg, quietly = TRUE)) {
       stop("`", pkg, "` is required: install.packages('", pkg, "')")
+    } 
+    if (requireNamespace(pkg, quietly = TRUE)) {
+      if (!is.element(pkg, (.packages()))) {
+        attachNamespace(pkg)
+      }
     }
   }
   if(is.null(parameter)) {
@@ -85,8 +90,14 @@ posteriorplot=function(x,parameter=NULL,plot="density",...) {
   for (pkg in required_packages) {
     if (!requireNamespace(pkg, quietly = TRUE)) {
       stop("`", pkg, "` is required: install.packages('", pkg, "')")
+    } 
+    if (requireNamespace(pkg, quietly = TRUE)) {
+      if (!is.element(pkg, (.packages()))) {
+        attachNamespace(pkg)
+      }
     }
   }
+  
   if(is.null(parameter)) {
     if(plot=="density") {
       x$sims.matrix %>% as_tibble() %>% gather(variable,value,1:ncol(.)) %>% 
@@ -138,8 +149,14 @@ bugs_diagplot=function(x,what="Rhat",...) {
   for (pkg in required_packages) {
     if (!requireNamespace(pkg, quietly = TRUE)) {
       stop("`", pkg, "` is required: install.packages('", pkg, "')")
+    } 
+    if (requireNamespace(pkg, quietly = TRUE)) {
+      if (!is.element(pkg, (.packages()))) {
+        attachNamespace(pkg)
+      }
     }
   }
+  
   x$summary %>% as_tibble() %>% ggplot(aes(1:nrow(.),!!sym(what))) + 
     geom_point() + geom_hline(yintercept=ifelse(what=="Rhat",1.1,x$n.sims),linetype="dashed",size=2) + 
     theme_bw() + labs(x="Parameters",title=ifelse(what=="Rhat","Potential scale reduction","Effective sample size"))
