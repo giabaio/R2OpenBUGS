@@ -21,6 +21,7 @@ fround <- function(x, digits)
 #' @keywords print
 print.bugs <- function(x, digits.summary = 3, interval = c(.025, .975), ...)
 {
+  
     if(!is.null(x$model.file))
         cat("Inference for Bugs model at \"", x$model.file, "\", ", sep="")
     if(!is.null(x$program))
@@ -92,11 +93,15 @@ print.bugs <- function(x, digits.summary = 3, interval = c(.025, .975), ...)
 #' @export bugs_summary
 #' 
 bugs_summary=function(x,parameter=NULL,probs=c(.025,.975),...) {
-  
   required_packages=c("tidyverse")
   for (pkg in required_packages) {
     if (!requireNamespace(pkg, quietly = TRUE)) {
       stop("`", pkg, "` is required: install.packages('", pkg, "')")
+    } 
+    if (requireNamespace(pkg, quietly = TRUE)) {
+      if (!is.element(pkg, (.packages()))) {
+        attachNamespace(pkg)
+      }
     }
   }
   

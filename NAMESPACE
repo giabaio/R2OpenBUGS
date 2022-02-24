@@ -18,7 +18,12 @@ export(bugs,
        monitor,
        as.bugs.array,
        write.model,
-       validateInstallOpenBUGS)
+       validateInstallOpenBUGS,
+	     bugs_summary,
+	     bugs_diagplot,
+	     posteriorplot,
+	     traceplot
+	   )
 
 S3method(print, bugs)
 S3method(plot, bugs)
