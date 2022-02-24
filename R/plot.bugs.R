@@ -40,11 +40,23 @@ plot.bugs <- function (x, display.parallel = FALSE, ...){
 #' the traceplot
 #' @param ... further arguments to \code{\link{traceplot}}
 #' @seealso \code{\link{bugs}}
-traceplot=function(x,parameter,...) {
-  x$sims.array[,,parameter] %>% 
-    as_tibble(.name_repair = ~paste("Chain",1:x$n.chains)) %>% mutate(iteration=row_number()) %>% 
-    gather(chain,value,contains("Chain"),-iteration) %>% ggplot(aes(x=iteration,y=value,color=chain))+geom_line() +
-    theme_bw() + labs(title=paste("Traceplot for",parameter))
+traceplot=function(x,parameter=NULL,...) {
+  if(is.null(parameter)) {
+    x$sims.array %>% 
+      as_tibble(.name_repair = ~paste0("Chain",x$sims.array %>% as_tibble() %>% colnames())) %>% 
+      mutate(iteration=row_number()) %>% 
+      gather(variable,value,c(-iteration)) %>% 
+      separate(variable,c("chain","parameter"),extra = "merge") %>% 
+      ggplot(aes(x=iteration,y=value,color=chain))+
+      geom_line()+facet_wrap(~parameter,scales="free")+
+      labs(title="Traceplot for all model parameters")+
+      theme_bw()
+  } else {
+    x$sims.array[,,parameter] %>% 
+      as_tibble(.name_repair = ~paste("Chain",1:x$n.chains)) %>% mutate(iteration=row_number()) %>% 
+      gather(chain,value,contains("Chain"),-iteration) %>% ggplot(aes(x=iteration,y=value,color=chain))+geom_line() +
+      theme_bw() + labs(title=paste("Traceplot for",parameter))
+  }
 }
 
 
@@ -59,11 +71,11 @@ traceplot=function(x,parameter,...) {
 densityplot=function(x,parameter=NULL,...) { 
   if(is.null(parameter)) {
     x$sims.matrix %>% as_tibble() %>% gather(variable,value,1:ncol(.)) %>% 
-      ggplot(aes(value))+geom_density()+facet_wrap(~variable,scales="free_y") + 
+      ggplot(aes(value))+geom_density()+facet_wrap(~variable,scales="free") + 
       theme_bw()
   # This would do a barplot of all the variables
   # x$sims.matrix %>% as_tibble() %>% gather(variable,value,1:ncol(.)) %>% 
-  #  ggplot(aes(value))+geom_density()+facet_wrap(~variable,scales="free_y") + 
+  #  ggplot(aes(value))+geom_bar()+scale_x_binned() + facet_wrap(~variable,scales="free") + 
   #    theme_bw()
   } else {
     x$sims.matrix[,parameter] %>% as_tibble() %>% ggplot(aes(value))+geom_density() +
