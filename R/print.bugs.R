@@ -100,7 +100,7 @@ bugs_summary=function(x,parameter=NULL,probs=c(.025,.975),...) {
     } 
     if (requireNamespace(pkg, quietly = TRUE)) {
       if (!is.element(pkg, (.packages()))) {
-        attachNamespace(pkg)
+        suppressMessages(suppressWarnings(attachNamespace(pkg)))
       }
     }
   }
