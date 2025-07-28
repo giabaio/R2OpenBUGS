@@ -154,12 +154,12 @@ bugs(data, inits, parameters.to.save, n.iter, model.file="model.txt",
   }
 
   BUGS version support:
-  \itemize{
+  \describe{
     \item{\pkg{OpenBUGS} }{>=3.2.1}
   }
 
   Operation system support:
-  \itemize{
+  \describe{
     \item{\pkg{MS Windows}}{ no problem}
     \item{\pkg{Linux, intel processors}}{ GUI display and graphics not available.}
     \item{\pkg{Mac OS X} and \pkg{Unix} in
@@ -242,12 +242,10 @@ bugs(data, inits, parameters.to.save, n.iter, model.file="model.txt",
   \pkg{coda} and \pkg{BRugs} packages}
 
 \examples{
-
-\dontrun{
 # An example model file is given in:
 model.file <- system.file(package="R2OpenBUGS", "model", "schools.txt")
 # Let's take a look:
-#file.show(model.file)
+# file.show(model.file)
 
 # Some example data (see ?schools for details):
 data(schools)
@@ -272,6 +270,7 @@ inits <- function(){
 
 parameters <- c("theta", "mu.theta", "sigma.theta")
 
+\dontrun{
 ## You may need to specify "OpenBUGS.pgm"
 ## also you need write access in the working directory:
 schools.sim <- bugs(data, inits, parameters, model.file,

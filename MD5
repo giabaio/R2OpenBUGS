@@ -1,8 +1,8 @@
-82eeb269ec2f87d723f62a8ad1384c1e *DESCRIPTION
+233f57ef2f039b1259c2da0820cdce53 *DESCRIPTION
 52375f09ddf911d04a21f1d59b7deb8f *NAMESPACE
 c6e2fac4bd4c53eee794461c93091017 *R/as.bugs.array.R
 3ed2ae0ca3c719074edd579aac380f2e *R/as.mcmc.list.bugs.R
-3d2a169064b5bbd0398dcd0b34981693 *R/attach.all.R
+ef6dcbc564b18909f3fc58be7cd5deed *R/attach.all.R
 4c447ac0356c40bd9355c07dfa96c66a *R/bugs.R
 c35e4975cd69246f9814339c9c492768 *R/bugs.data.R
 114b2fae6563acc4095b8edbdfbd21d2 *R/bugs.inits.R
@@ -25,12 +25,12 @@ ed28ea0911e1e52e9640c167cf695c03 *R/read.bugs.R
 3e78027ad44512a925cf4dac393bcd68 *R/wineutils.R
 efd33b6a49c441f37e25ba137cf1dc31 *R/write.datafile.R
 199b4f5183a410222bf66fd147269a09 *R/write.model.R
-9252a6d378d2f7e3ffb925ed3bbb3970 *build/vignette.rds
-b0cd2949a4ec048348ff907b893d7a4f *data/schools.txt.gz
-331273eda881d763bc5db965f5ad90d7 *inst/CITATION
+4ec972d78cae512aa22dff0710b975f0 *build/vignette.rds
+463f6d4d3d88abd5ad3f17034178afe0 *data/schools.txt.gz
+ec338129ac6c7a37cf3506f691d8d61c *inst/CITATION
 4a690552c26aada0cfc21a1fa84def0e *inst/NEWS
 be99223aacb236b1a5575ee6f30d127a *inst/doc/R2OpenBUGS.Rnw
-a3988059fe9a7cd2ebae3046b9d2c54f *inst/doc/R2OpenBUGS.pdf
+66a98252cf328040140789e7a2d9aa00 *inst/doc/R2OpenBUGS.pdf
 d0fcdd40339f64611177e97cdfb04ca4 *inst/model/schools.txt
 03f4c76b1f813cdbb6885dc235af1a05 *inst/validateInstallOpenBUGS/Airdata.txt
 2a9fbe44ff873d11e5d4db415794844d *inst/validateInstallOpenBUGS/Airinits.txt
@@ -83,7 +83,7 @@ c6483093c128c857b027e39b650cbe0d *inst/validateInstallOpenBUGS/validOpenBUGSResu
 8894f7ffc7abe6a500ecccfc2512c9a1 *man/R2WinBUGS-package.Rd
 c493ea69105800b001ac30152e2c7ae8 *man/as.bugs.array.Rd
 48556eccca0cdd50e4961e604b3c024a *man/attach.all.Rd
-e60be820f8fa6299b9c169fb3b41100b *man/bugs.Rd
+e310018d35476ff4b23af6b2045a19b2 *man/bugs.Rd
 10370033f69c23b13d2e76b4c1084829 *man/bugs.data.Rd
 50f6b3e2a23eeb3025088e9cdb714372 *man/bugs.inits.Rd
 30c2d36bbbca786fe43dc219968e89c1 *man/bugs.log.Rd
